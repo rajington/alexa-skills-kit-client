@@ -19,6 +19,15 @@ describe('alexaSkillsKitTest', () => {
     it('should be a valid request', () => {
       chai.expect(intent({ name: 'HelloWorld' })).to.be.jsonSchema(skillsKitRequest);
     });
+
+    it('with slots should be a valid request', () => {
+      chai.expect(intent({
+        name: 'HelloWorld',
+        slots: {
+          foo: 'bar',
+        },
+      })).to.be.jsonSchema(skillsKitRequest);
+    });
   });
 
   describe('end function', () => {

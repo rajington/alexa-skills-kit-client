@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/rajington/alexa-skills-kit-client",
   "devDependencies": {
-    "alexa-schemas": "0.0.1",
+    "alexa-schemas": "0.0.2",
     "babel-core": "^6.3.26",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.0",
