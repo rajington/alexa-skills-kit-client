@@ -23,13 +23,16 @@
   },
   "homepage": "https://github.com/rajington/alexa-skills-kit-client",
   "devDependencies": {
+    "alexa-schemas": "0.0.1",
     "babel-core": "^6.3.26",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.0",
     "babel-polyfill": "^6.3.14",
     "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.3.13",
-    "chai": "^3.4.1",
+    "chai": "^3.5.0",
+    "chai-json-schema": "^1.2.0",
     "del": "^2.2.0",
     "eslint": "^3.3.0",
     "eslint-config-airbnb": "^10.0.1",
@@ -59,5 +62,9 @@
   "babelBoilerplateOptions": {
     "entryFileName": "alexa-skills-kit-client.js",
     "mainVarName": "alexaSkillsKitClient"
+  },
+  "dependencies": {
+    "lodash": "^4.15.0",
+    "node-uuid": "^1.4.7"
   }
 }
