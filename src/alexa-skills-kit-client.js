@@ -1,4 +1,4 @@
-import { v4 } from 'node-uuid';
+import RandExp from 'randexp';
 import { isPlainObject, isEmpty, mapValues } from 'lodash';
 
 export const REQUEST_TYPES = {
@@ -13,28 +13,15 @@ export const SESSION_ENDED_REASONS = {
   EXCEEDED_MAX_REPROMPTS: 'EXCEEDED_MAX_REPROMPTS',
 };
 
-export const v4UpperCase = () => v4().toUpperCase();
+export const uuid = () =>
+  new RandExp(/[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/).gen();
 
-export const randomApplicationId = () =>
-  `amzn1.ask.skill.${v4UpperCase()}`;
-
-export const randomSessionId = () =>
-  `amzn1.echo-api.session.${v4UpperCase()}`;
-
-export const randomRequestId = () =>
-  `amzn1.echo-api.request.${v4UpperCase()}`;
-
-// random capitalized alphanumeric [A-Z0-9]
-const randomAlphaNumeric = () =>
-  Math.floor(Math.random() * 36).toString(36).toUpperCase();
-
-// random alphanumeric string of certain length
-const randomAlphaNumericString = length =>
-  Array(length).fill().map(randomAlphaNumeric).join('');
-
+export const randomApplicationId = () => `amzn1.ask.skill.${uuid()}`;
+export const randomSessionId = () => `amzn1.echo-api.session.${uuid()}`;
+export const randomRequestId = () => `amzn1.echo-api.request.${uuid()}`;
 export const randomUserId = () =>
-  // all users seem to have 207 character IDs
-  `amzn1.ask.account.${randomAlphaNumericString(207)}`;
+  // all users seem to have 207 character ALPHANUMERIC IDs
+  `amzn1.ask.account.${new RandExp(/[0-9A-Z]{207}/).gen()}`;
 
 // Amazon uses ISO8601 strings without millis
 const dateISOWithoutMillis = (date = new Date()) =>
